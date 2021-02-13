@@ -1,3 +1,4 @@
+import HashTable from 'HashTable';
 //Simple Hash Table Implementation
 
 // https://www.freecodecamp.org/news/how-to-implement-a-simple-hash-table-in-javascript-cb3b9c1f2997/
@@ -32,4 +33,54 @@
 
 
 // hash table has two simple methods: set and get
+// hashing function is used on the keys that you set or get
+// a good hashing function is the key to an efficient hash table
 
+
+// JS arrays are hash tables
+// a = [][]
+// a["some"] = "thing"'thing'
+// a[ some: 'thing']
+
+
+// https://www.mattzeunert.com/2017/02/01/implementing-a-hash-table-in-javascript.html
+
+
+// hash tables are a common data structure for storing key-value pairs
+
+
+var dict = new HashTable();
+dict.set("PI", 3.14);
+dict.get("PI");
+
+function NaiveDict() {
+    this.keys = [];
+    this.values = [];
+}
+
+NaiveDict.prototype.set = function(key, value) {
+    this.keys.push(key)
+    this.values.push(value)
+}
+NaiveDict.prototype.get = function(lookupKey) {
+    for (var i = 0; i < this.keys.length; i++) {
+        var key = this.keys[i];
+        if(key === lookupKey) {
+            return this.values[i]
+        }
+    }
+}
+
+//O(n)
+
+// GOAL IS TO EQUALLY DISTRIBUTE KEY-VALUE PAIRS ACROSS THE SLOTS
+
+// THE KEY OF A KEY-VALUE PAIR DECIDES WHAT BUCKET IT SHOULD BE STORED IN
+// FIRST, THE KEY IS CONVERTED TO A NUMBER USING A HASH FUNCTION
+
+var hash = hashFunction("PI")
+
+// we use the modulo operator to get an index thats smaller than our array size
+
+var arraySize = 1000
+var bucketIndex = hash % arraySize;
