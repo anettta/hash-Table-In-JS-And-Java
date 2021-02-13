@@ -29,3 +29,7 @@
 // return s
 // }
 // O(n + m) "do this, then when you're all done, do that" !!!
+
+
+// hash table has two simple methods: set and get
+
