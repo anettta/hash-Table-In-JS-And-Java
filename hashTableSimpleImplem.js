@@ -49,7 +49,7 @@ import HashTable from 'HashTable';
 // hash tables are a common data structure for storing key-value pairs
 
 
-var dict = new HashTable();
+var dict = new HashTable(); // hash tables can be used to implement associative arrays(also called dictionaries)
 dict.set("PI", 3.14);
 dict.get("PI");
 
@@ -83,4 +83,4 @@ var hash = hashFunction("PI")
 // we use the modulo operator to get an index thats smaller than our array size
 
 var arraySize = 1000
-var bucketIndex = hash % arraySize;
+var bucketIndex = hash % arraySize; 
